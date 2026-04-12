@@ -38,6 +38,7 @@ body {
 .calculator {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 300px;
     align-items: stretch;
     background-color: #333;
@@ -59,5 +60,26 @@ body {
 }
 
 .calc-buttons-container {
-    min-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    height: 400px;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+#clear {
+    background-color: rgb(197, 54, 54);
+}
+
+#equals-button {
+    background-color: rgb(104, 104, 172);
+}
+
+.calc-buttons-container button {
+    background-color: beige;
+    border-radius: 5px;
 }
