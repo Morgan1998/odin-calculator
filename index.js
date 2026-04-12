@@ -24,3 +24,12 @@ const operate = function(operator, num1, num2) {
     }
 }
 
+let currentOperator = "";
+let num1 = "";
+let num2 = "";
+
+const display = codument.querySelector("#display-text");
+
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
+const utilityButtons = document.querySelectorAll(".utility");
