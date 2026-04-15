@@ -42,6 +42,14 @@ function handleNumber(num) {
     }
 }
 
+function handleOperator(operator) {
+    if (num1 === '') return;
+    
+    if (currentOperator === '') {
+        currentOperator = operator;
+    } else if (currentOperator !== '') return;
+}
+
 calcButtonsContainer.addEventListener("click", (e) => {
     if (e.target.tagName !== 'BUTTON') return;
 
