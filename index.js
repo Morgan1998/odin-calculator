@@ -54,6 +54,19 @@ function handleOperator(operator) {
     currentOperator = operator;
 }
 
+function handleUtility(utility) {
+    switch (utility) {
+        case 'AC':
+            currentOperator = '';
+            num1 = '';
+            num2 = '';
+            display.textContent = '';
+        case '=':
+            if ((currentOperator === '') || (num1 === '') || (num2 === '')) return;
+            display.textContent = operate(currentOperator, num1, num2);
+    }
+}
+
 calcButtonsContainer.addEventListener("click", (e) => {
     if (e.target.tagName !== 'BUTTON') return;
 
@@ -66,5 +79,7 @@ calcButtonsContainer.addEventListener("click", (e) => {
         handleNumber(buttonText);
     } else if (buttonType === 'operator') {
         handleOperator(buttonText);
+    } else if (buttonType === 'utility') {
+        handleUtility(buttonText);
     }
 });
