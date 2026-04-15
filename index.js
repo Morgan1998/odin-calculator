@@ -3,6 +3,13 @@ const subtract = (num1, num2) => Number(num1) - Number(num2);
 const divide = (num1, num2) => Number(num1) / Number(num2);
 const multiply = (num1, num2) => Number(num1) * Number(num2);
 
+let currentOperator = '';
+let num1 = '';
+let num2 = '';
+
+const display = document.querySelector('#display-content');
+const calcButtonsContainer = document.querySelector(".calc-buttons-container");
+
 const operate = function(operator, num1, num2) {
     const a = Number(num1);
     const b = Number(num2);
@@ -23,13 +30,6 @@ const operate = function(operator, num1, num2) {
             return null;
     }
 }
-
-let currentOperator = '';
-let num1 = '';
-let num2 = '';
-
-const display = document.querySelector('#display-text');
-const calcButtonsContainer = document.querySelector(".calc-buttons-container");
 
 function handleNumber(num) {
     if (currentOperator === '') {
