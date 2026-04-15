@@ -28,8 +28,9 @@ let currentOperator = "";
 let num1 = "";
 let num2 = "";
 
-const display = codument.querySelector("#display-text");
+const display = document.querySelector("#display-text");
 
-const numberButtons = document.querySelectorAll(".number");
-const operatorButtons = document.querySelectorAll(".operator");
-const utilityButtons = document.querySelectorAll(".utility");
+const calcButtonsContainer = document.querySelector(".calc-buttons-container")
+
+
+calcButtonsContainer.addEventListener("click")
