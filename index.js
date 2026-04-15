@@ -45,9 +45,13 @@ function handleNumber(num) {
 function handleOperator(operator) {
     if (num1 === '') return;
     
-    if (currentOperator === '') {
-        currentOperator = operator;
-    } else if (currentOperator !== '') return;
+    if (num1 !== '' && num2 !== '') {
+        num1 = operate(currentOperator, num1, num2).toString();
+        display.textContent = num1;
+        num2 = '';
+    }
+
+    currentOperator = operator;
 }
 
 calcButtonsContainer.addEventListener("click", (e) => {
