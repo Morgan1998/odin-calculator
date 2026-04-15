@@ -24,12 +24,23 @@ const operate = function(operator, num1, num2) {
     }
 }
 
-let currentOperator = "";
-let num1 = "";
-let num2 = "";
+let currentOperator = '';
+let num1 = '';
+let num2 = '';
 
-const display = document.querySelector("#display-text");
+const display = document.querySelector('#display-text');
 const calcButtonsContainer = document.querySelector(".calc-buttons-container");
+
+function handleNumber(num) {
+    if (currentOperator === '') {
+        num1 += num;
+        display.textContent = num1;
+    }
+    else {
+        num2 += num;
+        display.textContent = num2;
+    }
+}
 
 calcButtonsContainer.addEventListener("click", (e) => {
     if (e.target.tagName !== 'BUTTON') return;
