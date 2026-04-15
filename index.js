@@ -29,8 +29,19 @@ let num1 = "";
 let num2 = "";
 
 const display = document.querySelector("#display-text");
+const calcButtonsContainer = document.querySelector(".calc-buttons-container");
 
-const calcButtonsContainer = document.querySelector(".calc-buttons-container")
+calcButtonsContainer.addEventListener("click", (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
 
+    const clickedButton = e.target;
+    console.log(clickedButton);
+    const buttonText = clickedButton.textContent;
+    const buttonType = clickedButton.className;
 
-calcButtonsContainer.addEventListener("click")
+    if (buttonType === 'number') {
+        handleNumber(buttonText);
+    } else if (buttonType === 'operator') {
+        handleOperator(buttonText);
+    }
+});
