@@ -46,10 +46,23 @@ function handleOperator(operator) {
     if (num1 === '') return;
     
     if (num1 !== '' && num2 !== '') {
-        num1 = operate(currentOperator, num1, num2).toString();
-        display.textContent = num1;
-        num2 = '';
+        const result = operate(currentOperator, num1, num2);
+
+        if (typeof result === 'string') {
+            display.textContent = result;
+            num1 = '';
+            num2 = '';
+            currentOperator = '';
+            return;
+        }
+
+        if (typeof result === 'number') {
+            num1 = (Math.round(result * 10000) / 10000).toString();
+            display.textContent = num1;
+            num2 = '';
+        }
     }
+
     currentOperator = operator;
 }
 
@@ -64,6 +77,9 @@ function handleUtility(utility) {
         case '=':
             if ((currentOperator === '') || (num1 === '') || (num2 === '')) return;
             result = operate(currentOperator, num1, num2);
+            if (typeof result === 'number') {
+                result = Math.round(result * 10000) / 10000;
+            }
             display.textContent = result;
 
             if (typeof result === 'string' && result.includes('Nice try')) {
