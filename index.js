@@ -23,7 +23,7 @@ const operate = function(operator, num1, num2) {
             return multiply(a,b);
         case '/':
             if (b === 0) {
-                return "Nice try, buster! No dividing by zero.";
+                return 'Nice try, buster! No dividing by zero.';
             }
             return divide(a,b);
         default:
@@ -50,7 +50,6 @@ function handleOperator(operator) {
         display.textContent = num1;
         num2 = '';
     }
-
     currentOperator = operator;
 }
 
@@ -60,18 +59,39 @@ function handleUtility(utility) {
             currentOperator = '';
             num1 = '';
             num2 = '';
-            display.textContent = '';
+            display.textContent = '0';
+            break;
         case '=':
             if ((currentOperator === '') || (num1 === '') || (num2 === '')) return;
-            display.textContent = operate(currentOperator, num1, num2);
+            result = operate(currentOperator, num1, num2);
+            display.textContent = result;
+
+            if (typeof result === 'string' && result.includes('Nice try')) {
+                num1 = '';
+                num2 = '';
+                currentOperator = '';
+                return;
+            }
+
+            num1 = result.toString();
+            num2 = '';
+            currentOperator = '';
+            break;
+        default:
+            console.log(`Utility "${utility}" clicked, but no logic assigned yet.`);
+            break;
     }
 }
 
 calcButtonsContainer.addEventListener("click", (e) => {
     if (e.target.tagName !== 'BUTTON') return;
 
+    console.log(`Current Operator is ${currentOperator}`);
+    console.log(`Current num1 is ${num1}`);
+    console.log(`Current num2 is ${num2}`);
+
+
     const clickedButton = e.target;
-    console.log(clickedButton);
     const buttonText = clickedButton.textContent;
     const buttonType = clickedButton.className;
 
