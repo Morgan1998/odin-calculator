@@ -6,6 +6,7 @@ const multiply = (num1, num2) => Number(num1) * Number(num2);
 let currentOperator = '';
 let num1 = '';
 let num2 = '';
+let shouldResetScreen = false;
 
 const display = document.querySelector('#display-content');
 const calcButtonsContainer = document.querySelector(".calc-buttons-container");
@@ -32,6 +33,12 @@ const operate = function(operator, num1, num2) {
 }
 
 function handleNumber(num) {
+    if (shouldResetScreen) {
+        num1 = num;
+        display.textContent = num1;
+        shouldResetScreen = false;
+        return;
+    }
     if (currentOperator === '') {
         num1 += num;
         display.textContent = num1;
@@ -44,6 +51,8 @@ function handleNumber(num) {
 
 function handleOperator(operator) {
     if (num1 === '') return;
+
+    shouldResetScreen = false;
     
     if (num1 !== '' && num2 !== '') {
         const result = operate(currentOperator, num1, num2);
@@ -92,6 +101,7 @@ function handleUtility(utility) {
             num1 = result.toString();
             num2 = '';
             currentOperator = '';
+            shouldResetScreen = true;
             break;
         default:
             console.log(`Utility "${utility}" clicked, but no logic assigned yet.`);
