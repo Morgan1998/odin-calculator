@@ -81,6 +81,7 @@ function handleUtility(utility) {
             currentOperator = '';
             num1 = '';
             num2 = '';
+            shouldResetScreen = false;
             display.textContent = '0';
             break;
         case '=':
