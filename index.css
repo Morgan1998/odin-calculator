@@ -1,132 +1,169 @@
-/* --- THE ALCHEMIST'S PALETTE --- */
-:root {
-    --chamber-bg: #060b08;
-    --gold: #d4af37;
-    --emerald: #2ecc71;
-    --mana-mist: rgba(46, 204, 113, 0.15);
+*, *::before, *::after {
+
+    box-sizing: border-box;
+
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
 }
+
+
+
+img, picture, video, canvas, svg {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+
+
+button {
+
+    font: inherit;
+
+    cursor: pointer;
+
+    border: none;
+
+    background: none;
+
+}
+
+
+
+html {
+
+    -webkit-font-smoothing: antialiased;
+
+    -moz-osx-font-smothing: grayscale;
+
+}
+
+
 
 body {
+
     min-height: 100vh;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
+
+    gap:30px;
+
     margin: 0;
-    /* MAGICAL PARTICLE BACKGROUND */
-    background: 
-        radial-gradient(circle at 20% 30%, var(--mana-mist) 0%, transparent 20%),
-        radial-gradient(circle at 80% 70%, var(--mana-mist) 0%, transparent 20%),
-        var(--chamber-bg);
-    background-size: 200% 200%;
-    animation: floatingParticles 10s infinite alternate ease-in-out;
-    font-family: 'Georgia', serif;
-    overflow: hidden;
+
+    background-color: #f0f0f0;
+
 }
 
-/* THE FLOATING MIST ANIMATION */
-@keyframes floatingParticles {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-}
 
-/* --- THE ENCHANTED TOMB (CALCULATOR) --- */
+
 .calculator {
+
     display: flex;
+
     flex-direction: column;
-    gap: 15px;
-    width: 320px;
-    background: rgba(20, 30, 25, 0.95);
-    padding: 30px;
-    border-radius: 5px;
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2), 
-                inset 0 0 15px rgba(0, 0, 0, 0.8);
-    position: relative;
+
+    gap: 10px;
+
+    width: 300px;
+
+    align-items: stretch;
+
+    background-color: #333;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+
 }
 
-/* THE MAGICAL CRYSTAL DISPLAY */
+
+
 .calc-display-container {
+
     background: #000;
-    color: var(--emerald);
+
+    color: #0f0;
+
     width: 100%;
-    min-height: 90px;
+
+    min-height: 80px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: flex-end;
-    border-radius: 0;
-    padding: 20px;
-    font-size: 2.2rem;
-    border: 1px solid var(--gold);
-    text-shadow: 0 0 10px var(--emerald);
-    box-shadow: inset 0 0 20px rgba(46, 204, 113, 0.3);
+
+    border-radius: 4px;
+
+    padding: 10px;
+
 }
+
+
 
 .calc-buttons-container {
+
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     grid-template-rows: repeat(5, 1fr);
-    gap: 12px;
+
+    gap: 10px;
+
+    height: 400px;
+
 }
 
-/* RUNE BUTTONS */
-.calc-buttons-container button {
-    background: #1a1a1a;
-    color: var(--gold);
-    border: 1px solid #333;
-    border-radius: 2px;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    position: relative;
-}
 
-.calc-buttons-container button:hover {
-    background: #252525;
-    border-color: var(--gold);
-    color: #fff;
-    box-shadow: 0 0 10px var(--gold);
-    transform: scale(1.05);
-}
-
-.calc-buttons-container button:active {
-    transform: scale(0.95);
-    filter: brightness(1.5);
-}
-
-/* SPECIAL RUNES */
-.operator {
-    color: #fff !important;
-    background: rgba(212, 175, 55, 0.1) !important;
-}
-
-#clear {
-    border-color: #c53636 !important;
-    color: #f88 !important;
-}
 
 #zero {
+
     grid-column: span 2;
+
 }
 
-/* DECORATIVE CORNER PIECES */
-.calculator::before {
-    content: "✧";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    color: var(--gold);
-    font-size: 0.8rem;
+
+
+#clear {
+
+    background-color: rgb(197, 54, 54);
+
 }
 
-.calculator::after {
-    content: "✧";
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    color: var(--gold);
-    font-size: 0.8rem;
+
+
+#equals-button {
+
+    background-color: rgb(104, 104, 172);
+
+}
+
+
+
+.calc-buttons-container button {
+
+    background-color: beige;
+
+    border-radius: 5px;
+
 }
